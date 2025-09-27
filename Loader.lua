@@ -5,15 +5,15 @@
     local p=game:GetService("\80\108\97\121\101\114\115").LocalPlayer;
     local s=_["check_key"](script_key or getgenv().script_key); 
 
-    local function init_loading(s)
-        if s then
+    local function init_loading(state)
+        if state then
             repeat task.wait(0.1) until game:IsLoaded();
         else
             p:Kick('Xecret Hub | Status: Down | '..os.date());
         end
     end;
 
-    init_loading(true);
+    init_loading(false);
 
     pcall(function()
     getgenv().script_key=script_key; 
@@ -35,3 +35,4 @@
     };
 
     (k[(s and s.code)] or function() p:Kick("\91\69\82\82\79\82\93\32\76\111\97\100\101\114\32\69\114\114\111\114\32\45\32"..((s and s.message) or b1)) end)();
+
